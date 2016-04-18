@@ -6,7 +6,7 @@ var pathToReactDom = path.resolve(node_modules, 'react-dom/dist/react-dom.js');
 
 config = {
 	entry: ['webpack/hot/dev-server',
-  				path.resolve(__dirname, 'app/main.jsx')],
+  				path.resolve(__dirname, 'app/main.js')],
 	resolve: {
 		alias: {
 			'react': pathToReact,
@@ -22,18 +22,17 @@ config = {
 		loaders: [{
 			test: /\.jsx?$/,
 			loader: 'babel-loader',
-			 exclude: /node_modules/,
-			query: {
-        presets: ['es2015', 'react']
-    	}
+			exclude: /node_modules/,
 		}],
 		noParse: [pathToReact]
 	},
 	devServer: {
-    contentBase: "./app",
+    contentBase: "",
     publicPath: '/static/',
     noInfo: true, //  --no-info option
     hot: true,
+    port: 3002,
+    host: '0.0.0.0',
     inline: true,
     colors: true,
     historyApiFallback: true
